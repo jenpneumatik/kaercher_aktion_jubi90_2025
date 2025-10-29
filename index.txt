@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="de"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestellformular: Kärcher Jubiläums-Aktion - jenpneumatik GmbH</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .header img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+        }
+        .intro {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .intro h2 {
+            color: #6d757c; /* jenpneumatik Grau */
+            margin-bottom: 10px;
+        }
+        .intro p {
+            font-size: 1.1em;
+            color: #555;
+        }
+        .section {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border: 1px solid #e9e9e9;
+        }
+        .section h3 {
+            color: #70a0c9; /* jenpneumatik Blau */
+            margin-top: 0;
+            border-bottom: 2px solid #70a0c9;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+        }
+        .product-table th, .product-table td {
+            padding: 15px 10px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .product-table th {
+            font-size: 0.85em;
+            color: #555;
+            text-transform: uppercase;
+        }
+        .product-name { font-weight: bold; }
+        .remarks { font-size: 0.9em; color: #666; }
+        .price { font-weight: bold; color: #000; font-size: 1.1em; white-space: nowrap; }
+        .savings { color: #666; white-space: nowrap; }
+        .order-nr { font-family: monospace, monospace; color: #555; }
+        .quantity-input {
+            width: 70px;
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group label { margin-bottom: 6px; font-weight: bold; color: #555; }
+        .form-group input { padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; }
+        .actions { text-align: center; padding-top: 20px; }
+        .btn { padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin: 5px; text-decoration: none; display: inline-block; transition: background-color 0.2s; }
+        .btn-primary { background-color: #70a0c9; color: white; }
+        .btn-primary:hover { background-color: #5a8cb5; }
+        .btn-secondary { background-color: #6d757c; color: white; }
+        .btn-secondary:hover { background-color: #575e63; }
+        .btn-tertiary { background-color: #f2f2f2; color: #333; border: 1px solid #ccc; }
+        .btn-tertiary:hover { background-color: #e2e2e2; }
+        .footer { text-align: center; font-size: 14px; color: #666; border-top: 1px solid #eee; padding-top: 20px; margin-top: 20px; }
+        @media (max-width: 900px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .container { padding: 20px; }
+            .product-table th, .product-table td { padding: 10px 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header class="header">
+            <img src="logo.png" alt="jenpneumatik &amp; Schlauchtechnik GmbH Logo">
+        </header>
+
+        <section class="intro">
+            <h2>Bestellformular: Kärcher Jubiläums-Aktion</h2>
+            <p>Aktion gültig vom 01.01. - 31.12.2025, solange der Vorrat reicht.<br>Sollten Sie Fragen haben, kontaktieren Sie uns gerne direkt.</p>
+        </section>
+
+        <section class="section">
+            <h3>1. Produkte auswählen</h3>
+            <div style="overflow-x: auto;">
+            <table class="product-table" id="productTable">
+                <thead>
+                    <tr>
+                        <th style="min-width: 80px;">Menge</th>
+                        <th>Bezeichnung &amp; Produktinformationen</th>
+                        <th style="min-width: 110px;">Bestell-Nr.</th>
+                        <th style="min-width: 100px;">Aktionspreis<br><small>in € inkl. 19% MwSt.</small></th>
+                        <th style="min-width: 100px;">Ersparnis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
+                        <td data-name="CV 30/2 Bp Anniversary Edition + 10x Vliesfiltertüte">
+                            <div class="product-name">CV 30/2 Bp Anniversary Edition + 10x Vliesfiltertüte</div>
+                            <div class="remarks">Akku-Bürstsauger für alle Teppich- und Hartflächen. Mit automatischer Bodenerkennung.</div>
+                        </td>
+                        <td class="order-nr" data-number="1.023-209.0">1.023-209.0</td>
+                        <td class="price">490,- €</td>
+                        <td class="savings">---</td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
+                        <td data-name="BVL 3/1 Bp Anniversary Edition + 10x Vliesfiltertüte">
+                            <div class="product-name">BVL 3/1 Bp Anniversary Edition + 10x Vliesfiltertüte</div>
+                            <div class="remarks">Ultraleichter & leistungsstarker Akku-Rucksacksauger mit robustem EPP-Material.</div>
+                        </td>
+                        <td class="order-nr" data-number="1.394-308.0">1.394-308.0</td>
+                        <td class="price">416,- €</td>
+                        <td class="savings">---</td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
+                        <td data-name="NT 22/1 Ap L Anniversary Edition + 10x Vliesfiltertüte">
+                            <div class="product-name">NT 22/1 Ap L Anniversary Edition + 10x Vliesfiltertüte</div>
+                            <div class="remarks">Handliches Nass-/Trockensauger-Einstiegsgerät, bestens geeignet für mobile Einsätze.</div>
+                        </td>
+                        <td class="order-nr" data-number="1.378-623.0">1.378-623.0</td>
+                        <td class="price">183,- €</td>
+                        <td class="savings">---</td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
+                        <td data-name="Puzzi 8/1 Anniversary Edition + 1x RM 760 CarpetPro">
+                            <div class="product-name">Puzzi 8/1 Anniversary Edition + 1x RM 760 CarpetPro</div>
+                            <div class="remarks">Reinigt textile Flächen leistungsstark, ideal für Polster und zur Fleckentfernung.</div>
+                        </td>
+                        <td class="order-nr" data-number="1.100-248.0">1.100-248.0</td>
+                        <td class="price">635,- €</td>
+                        <td class="savings">---</td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
+                        <td data-name="SG 4/2 Classic Anniversary Edition + Dampfglätter">
+                            <div class="product-name">SG 4/2 Classic Anniversary Edition + Dampfglätter</div>
+                            <div class="remarks">Kompakt und einfach zu bedienen, mit VapoHydro-Funktion zur chemiefreien Reinigung.</div>
+                        </td>
+                        <td class="order-nr" data-number="1.092-303.0">1.092-303.0</td>
+                        <td class="price">728,- €</td>
+                        <td class="savings">---</td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
+                        <td data-name="HD 5/13 EX EB + Foam Classic Anniversary Edition">
+                            <div class="product-name">HD 5/13 EX EB + Foam Classic Anniversary Edition</div>
+                            <div class="remarks">Kompakter Hochdruckreiniger mit Eco!Booster Düse, Becherschaumlanze & Strahlrohr 600mm.</div>
+                        </td>
+                        <td class="order-nr" data-number="1.520-830.0">1.520-830.0</td>
+                        <td class="price">650,- €</td>
+                        <td class="savings">---</td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
+                        <td data-name="HD 6/15 M Cage EB Anniversary Edition">
+                            <div class="product-name">HD 6/15 M Cage EB Anniversary Edition</div>
+                            <div class="remarks">Robuster Hochdruckreiniger mit Stahlrahmen, Eco!Booster Düse und 600mm Strahlrohr.</div>
+                        </td>
+                        <td class="order-nr" data-number="1.150-973.0">1.150-973.0</td>
+                        <td class="price">1.000,- €</td>
+                        <td class="savings">---</td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
+                        <td data-name="HD 7/16 MX Plus + FR Classic Anniversary Edition">
+                            <div class="product-name">HD 7/16 MX Plus + FR Classic Anniversary Edition</div>
+                            <div class="remarks">Starker Hochdruckreiniger mit Schlauchtrommel, Flächenreiniger, Dreckfräser & Strahlrohr 840mm.</div>
+                        </td>
+                        <td class="order-nr" data-number="1.524-968.0">1.524-968.0</td>
+                        <td class="price">1.600,- €</td>
+                        <td class="savings">---</td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
+                        <td data-name="HDS 7/16-4 C Classic Anniversary Edition">
+                            <div class="product-name">HDS 7/16-4 C Classic Anniversary Edition</div>
+                            <div class="remarks">Heißwasser-Hochdruckreiniger mit wassergekühltem Elektromotor und eco!efficiency-Stufe.</div>
+                        </td>
+                        <td class="order-nr" data-number="1.174-919.0">1.174-919.0</td>
+                        <td class="price">2.900,- €</td>
+                        <td class="savings">---</td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
+                        <td data-name="HDS 5/13 U Anniversary Edition">
+                            <div class="product-name">HDS 5/13 U Anniversary Edition</div>
+                            <div class="remarks">Heißwasser-Hochdruckreiniger mit 130 bar, Mobilität & Ergonomie dank Upright-Design.</div>
+                        </td>
+                        <td class="order-nr" data-number="1.064-918.0">1.064-918.0</td>
+                        <td class="price">1.820,- €</td>
+                        <td class="savings">---</td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
+                        <td data-name="BR 30/4 C Ep Anniversary Edition + 1x Mikrofaserwalze">
+                            <div class="product-name">BR 30/4 C Ep Anniversary Edition + 1x Mikrofaserwalze</div>
+                            <div class="remarks">Kompakte & leichte Scheuersaugmaschine für Flächen bis 200 m².</div>
+                        </td>
+                        <td class="order-nr" data-number="1.783-235.0">1.783-235.0</td>
+                        <td class="price">1.500,- €</td>
+                        <td class="savings">---</td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
+                        <td data-name="BR 40/10 C Ep Anniversary Edition + 2x Walzenbürste, hoch-tief, orange">
+                            <div class="product-name">BR 40/10 C Ep Anniversary Edition + 2x Walzenbürste</div>
+                            <div class="remarks">Vielseitig einsetzbare handgeführte Scheuersaugmaschine mit orangenen Hoch-Tiefbürsten.</div>
+                        </td>
+                        <td class="order-nr" data-number="1.783-343.0">1.783-343.0</td>
+                        <td class="price">2.530,- €</td>
+                        <td class="savings">---</td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
+                        <td data-name="B 50 W Bp Pack Anniversary Edition + 6x CA 50 C 2,5 Ltr.">
+                            <div class="product-name">B 50 W Bp Pack Anniversary Edition + 6x CA 50 C 2,5 Ltr.</div>
+                            <div class="remarks">Inkl. 80 Ah Li-Ionen-Akku, Onboard-Schnellladegerät, R55-Walzenschrubbdeck.</div>
+                        </td>
+                        <td class="order-nr" data-number="1.533-271.0">1.533-271.0</td>
+                        <td class="price">9.095,- €</td>
+                        <td class="savings">---</td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
+                        <td data-name="BD 50/70 R Classic Bp Pack Anniversary Edition + 6x CA 50 C 2,5 Ltr.">
+                            <div class="product-name">BD 50/70 R Classic Bp Pack Anniversary Edition + 6x CA 50 C 2,5 Ltr.</div>
+                            <div class="remarks">Aufsitzscheuersaugmaschine für bis zu 2000 m² Flächenleistung pro Stunde.</div>
+                        </td>
+                        <td class="order-nr" data-number="1.161-083.0">1.161-083.0</td>
+                        <td class="price">9.345,- €</td>
+                        <td class="savings">---</td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
+                        <td data-name="KM 70/20 2SB Anniversary Edition">
+                            <div class="product-name">KM 70/20 2SB Anniversary Edition</div>
+                            <div class="remarks">2 Seitenbesen für eine große Flächenleistung und nahezu staubfreies Kehren.</div>
+                        </td>
+                        <td class="order-nr" data-number="1.517-100.0">1.517-100.0</td>
+                        <td class="price">640,- €</td>
+                        <td class="savings">---</td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
+                        <td data-name="KM 70/30 C Bp Anniversary Edition">
+                            <div class="product-name">KM 70/30 C Bp Anniversary Edition</div>
+                            <div class="remarks">Zur Reinigung von Hartflächen innen & außen. Batterieelektrischer Kehrwalzen- & Seitenbesenantrieb.</div>
+                        </td>
+                        <td class="order-nr" data-number="1.517-200.0">1.517-200.0</td>
+                        <td class="price">1.590,- €</td>
+                        <td class="savings">---</td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
+                        <td data-name="KM 75/40 W Bp Pack Anniversary Edition + 1x Seitenbesen hart">
+                            <div class="product-name">KM 75/40 W Bp Pack Anniversary Edition + 1x Seitenbesen hart</div>
+                            <div class="remarks">Handgeführte, batteriebetriebene Kehrsaugmaschine mit komfortablem Fahrantrieb.</div>
+                        </td>
+                        <td class="order-nr" data-number="1.049-220.0">1.049-220.0</td>
+                        <td class="price">4.300,- €</td>
+                        <td class="savings">---</td>
+                    </tr>
+                     <tr>
+                        <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
+                        <td data-name="KM 75/40 W G Anniversary Edition + 1x Seitenbesen hart">
+                            <div class="product-name">KM 75/40 W G Anniversary Edition + 1x Seitenbesen hart</div>
+                            <div class="remarks">Kompakte, wendige, handgeführte Kehrsaugmaschine für Außenbereiche. Emissionsarmer Benzinmotor.</div>
+                        </td>
+                        <td class="order-nr" data-number="1.049-221.0">1.049-221.0</td>
+                        <td class="price">3.300,- €</td>
+                        <td class="savings">---</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </section>
+
+        <section class="section">
+            <h3>2. Ihre Bestelldaten</h3>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="name">Name / Firma</label>
+                    <input type="text" id="name" required="">
+                </div>
+                <div class="form-group">
+                    <label for="verband">Bauern-/Winzerverband</label>
+                    <input type="text" id="verband">
+                </div>
+                <div class="form-group">
+                    <label for="strasse">Straße und Hausnummer</label>
+                    <input type="text" id="strasse" required="">
+                </div>
+                <div class="form-group">
+                    <label for="mitgliedsnummer">BV-Mitglieds-Nummer</label>
+                    <input type="text" id="mitgliedsnummer">
+                </div>
+                <div class="form-group">
+                    <label for="ort">PLZ und Ort</label>
+                    <input type="text" id="ort" required="">
+                </div>
+                <div class="form-group">
+                    <label for="tel">Telefon</label>
+                    <input type="tel" id="tel" required="">
+                </div>
+                 <div class="form-group">
+                    <label for="email">E-Mail</label>
+                    <input type="email" id="email" required="">
+                </div>
+            </div>
+        </section>
+
+        <div class="actions">
+            <button id="printButton" class="btn btn-secondary">Formular Drucken</button>
+            <button id="emailButton" class="btn btn-primary">Bestellung per E-Mail senden</button>
+            <a href="https://www.jenpneumatik.de/" target="_blank" class="btn btn-tertiary">Zur jenpneumatik Webseite</a>
+        </div>
+
+        <footer class="footer">
+            <p><strong>jenpneumatik &amp; Schlauchtechnik GmbH</strong><br>
+            Ernst-Ruska-Ring 31 • 07745 Jena<br>
+            Tel: +49 (0) 3641 3563-0 • E-Mail: mail@jenpneumatik.de</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Funktion für den Druck-Button
+            document.getElementById('printButton').addEventListener('click', () => window.print());
+
+            // Funktion für den E-Mail-Button
+            document.getElementById('emailButton').addEventListener('click', function() {
+                // 1. Bestelldaten sammeln
+                let orderSummary = '';
+                let hasProducts = false;
+                const productRows = document.querySelectorAll('#productTable tbody tr');
+                
+                productRows.forEach(row => {
+                    const quantityInput = row.querySelector('.quantity-input');
+                    const quantity = parseInt(quantityInput.value, 10) || 0;
+                    if (quantity > 0) {
+                        hasProducts = true;
+                        const name = row.querySelector('[data-name]').getAttribute('data-name');
+                        const number = row.querySelector('[data-number]').getAttribute('data-number');
+                        orderSummary += `${quantity}x - ${name} (Art.-Nr.: ${number})\n`;
+                    }
+                });
+
+                if (!hasProducts) {
+                    alert('Bitte geben Sie für mindestens einen Artikel eine Menge an.');
+                    return;
+                }
+
+                // 2. Kontaktdaten sammeln
+                const contactDetails = {
+                    name: document.getElementById('name').value,
+                    verband: document.getElementById('verband').value,
+                    mitgliedsnummer: document.getElementById('mitgliedsnummer').value,
+                    strasse: document.getElementById('strasse').value,
+                    ort: document.getElementById('ort').value,
+                    tel: document.getElementById('tel').value,
+                    email: document.getElementById('email').value,
+                };
+
+                if (!contactDetails.name || !contactDetails.strasse || !contactDetails.ort || !contactDetails.email) {
+                    alert('Bitte füllen Sie die erforderlichen Felder aus (Name, Straße, Ort, E-Mail).');
+                    return;
+                }
+
+                // 3. E-Mail zusammenbauen
+                const recipient = 'mail@jenpneumatik.de';
+                const subject = 'Bestellung - Kärcher Jubiläums-Aktion';
+                let body = 'Sehr geehrte Damen und Herren,\n\nhiermit bestelle ich verbindlich die folgenden Artikel aus der Kärcher Jubiläums-Aktion:\n\n';
+                body += '-------------------------------------------------\n';
+                body += orderSummary;
+                body += '-------------------------------------------------\n\n';
+                body += 'Liefer- und Rechnungsadresse:\n';
+                body += `${contactDetails.name}\n`;
+                body += `${contactDetails.strasse}\n`;
+                body += `${contactDetails.ort}\n\n`;
+                body += `E-Mail: ${contactDetails.email}\n`;
+                body += `Telefon: ${contactDetails.tel}\n\n`;
+                if (contactDetails.verband) body += `Bauern-/Winzerverband: ${contactDetails.verband}\n`;
+                if (contactDetails.mitgliedsnummer) body += `BV-Mitglieds-Nummer: ${contactDetails.mitgliedsnummer}\n`;
+                body += '\nMit freundlichen Grüßen\n';
+                body += contactDetails.name;
+
+                // 4. Mailto-Link erstellen und öffnen
+                const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                window.location.href = mailtoLink;
+            });
+        });
+    </script>
+
+</body>
+</html>
