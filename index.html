@@ -24,6 +24,7 @@
             text-align: center;
             padding-bottom: 20px;
             border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
         }
         .header img {
             width: 100%;
@@ -31,22 +32,37 @@
             height: auto;
         }
         .intro {
+            background-color: #FFED00; /* Kärcher Gelb */
+            border-radius: 8px;
+            padding: 25px;
             text-align: center;
-            padding: 20px 0;
         }
         .intro h2 {
-            color: #6d757c; /* jenpneumatik Grau */
-            margin-bottom: 10px;
+            color: #333; /* Dunkler Text für Lesbarkeit */
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .intro img {
+            width: 100%;
+            max-width: 500px; /* Maximale Breite für das Bild */
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
         }
         .intro p {
             font-size: 1.1em;
-            color: #555;
+            color: #333; /* Dunkler Text für Lesbarkeit */
+            margin-bottom: 0;
+        }
+        .intro .subtext {
+            font-size: 0.9em;
+            margin-top: 15px;
         }
         .section {
             background-color: #fff;
             padding: 25px;
             border-radius: 8px;
-            margin-bottom: 25px;
+            margin-top: 25px;
             border: 1px solid #e9e9e9;
         }
         .section h3 {
@@ -74,7 +90,6 @@
         .product-name { font-weight: bold; }
         .remarks { font-size: 0.9em; color: #666; }
         .price { font-weight: bold; color: #000; font-size: 1.1em; white-space: nowrap; }
-        .savings { color: #666; white-space: nowrap; }
         .order-nr { font-family: monospace, monospace; color: #555; }
         .quantity-input {
             width: 70px;
@@ -99,6 +114,23 @@
         .btn-secondary:hover { background-color: #575e63; }
         .btn-tertiary { background-color: #f2f2f2; color: #333; border: 1px solid #ccc; }
         .btn-tertiary:hover { background-color: #e2e2e2; }
+        .btn-karcher {
+            background-color: #FFED00;
+            color: #000;
+            border: 1px solid #e6d600;
+        }
+        .btn-karcher:hover {
+            background-color: #e6d600;
+        }
+        .footnote {
+            font-size: 0.8em;
+            color: #666;
+            padding: 15px 25px 0 25px;
+            margin-top: -25px;
+        }
+        .footnote a {
+            color: #70a0c9;
+        }
         .footer { text-align: center; font-size: 14px; color: #666; border-top: 1px solid #eee; padding-top: 20px; margin-top: 20px; }
         @media (max-width: 900px) {
             .form-grid { grid-template-columns: 1fr; }
@@ -116,8 +148,10 @@
         </header>
 
         <section class="intro">
-            <h2>Bestellformular: Kärcher Jubiläums-Aktion</h2>
-            <p>Aktion gültig vom 01.01. - 31.12.2025, solange der Vorrat reicht.<br>Sollten Sie Fragen haben, kontaktieren Sie uns gerne direkt.</p>
+            <h2>Profitieren Sie von der Kärcher-Jubiläumsaktion</h2>
+            <img src="promo-image.png" alt="Kärcher Reinigungsgerät in Anwendung">
+            <p>Feiern Sie mit und bestellen Sie zu Aktionspreisen* und mit 24 Monate Garantie**</p>
+            <p class="subtext">Aktion gültig vom 01.01. - 31.12.2025, solange der Vorrat reicht.<br>Sollten Sie Fragen haben, kontaktieren Sie uns gerne direkt.</p>
         </section>
 
         <section class="section">
@@ -129,8 +163,7 @@
                         <th style="min-width: 80px;">Menge</th>
                         <th>Bezeichnung &amp; Produktinformationen</th>
                         <th style="min-width: 110px;">Bestell-Nr.</th>
-                        <th style="min-width: 100px;">Aktionspreis<br><small>in € inkl. 19% MwSt.</small></th>
-                        <th style="min-width: 100px;">Ersparnis</th>
+                        <th style="min-width: 100px;">Aktionspreis<br><small>in € zzgl. MwSt.</small></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -142,7 +175,6 @@
                         </td>
                         <td class="order-nr" data-number="1.023-209.0">1.023-209.0</td>
                         <td class="price">490,- €</td>
-                        <td class="savings">---</td>
                     </tr>
                     <tr>
                         <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
@@ -152,7 +184,6 @@
                         </td>
                         <td class="order-nr" data-number="1.394-308.0">1.394-308.0</td>
                         <td class="price">416,- €</td>
-                        <td class="savings">---</td>
                     </tr>
                     <tr>
                         <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
@@ -162,7 +193,6 @@
                         </td>
                         <td class="order-nr" data-number="1.378-623.0">1.378-623.0</td>
                         <td class="price">183,- €</td>
-                        <td class="savings">---</td>
                     </tr>
                     <tr>
                         <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
@@ -172,7 +202,6 @@
                         </td>
                         <td class="order-nr" data-number="1.100-248.0">1.100-248.0</td>
                         <td class="price">635,- €</td>
-                        <td class="savings">---</td>
                     </tr>
                     <tr>
                         <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
@@ -182,7 +211,6 @@
                         </td>
                         <td class="order-nr" data-number="1.092-303.0">1.092-303.0</td>
                         <td class="price">728,- €</td>
-                        <td class="savings">---</td>
                     </tr>
                     <tr>
                         <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
@@ -192,7 +220,6 @@
                         </td>
                         <td class="order-nr" data-number="1.520-830.0">1.520-830.0</td>
                         <td class="price">650,- €</td>
-                        <td class="savings">---</td>
                     </tr>
                     <tr>
                         <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
@@ -202,7 +229,6 @@
                         </td>
                         <td class="order-nr" data-number="1.150-973.0">1.150-973.0</td>
                         <td class="price">1.000,- €</td>
-                        <td class="savings">---</td>
                     </tr>
                     <tr>
                         <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
@@ -212,7 +238,6 @@
                         </td>
                         <td class="order-nr" data-number="1.524-968.0">1.524-968.0</td>
                         <td class="price">1.600,- €</td>
-                        <td class="savings">---</td>
                     </tr>
                     <tr>
                         <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
@@ -222,7 +247,6 @@
                         </td>
                         <td class="order-nr" data-number="1.174-919.0">1.174-919.0</td>
                         <td class="price">2.900,- €</td>
-                        <td class="savings">---</td>
                     </tr>
                     <tr>
                         <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
@@ -232,7 +256,6 @@
                         </td>
                         <td class="order-nr" data-number="1.064-918.0">1.064-918.0</td>
                         <td class="price">1.820,- €</td>
-                        <td class="savings">---</td>
                     </tr>
                     <tr>
                         <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
@@ -242,7 +265,6 @@
                         </td>
                         <td class="order-nr" data-number="1.783-235.0">1.783-235.0</td>
                         <td class="price">1.500,- €</td>
-                        <td class="savings">---</td>
                     </tr>
                     <tr>
                         <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
@@ -252,7 +274,6 @@
                         </td>
                         <td class="order-nr" data-number="1.783-343.0">1.783-343.0</td>
                         <td class="price">2.530,- €</td>
-                        <td class="savings">---</td>
                     </tr>
                     <tr>
                         <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
@@ -262,7 +283,6 @@
                         </td>
                         <td class="order-nr" data-number="1.533-271.0">1.533-271.0</td>
                         <td class="price">9.095,- €</td>
-                        <td class="savings">---</td>
                     </tr>
                     <tr>
                         <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
@@ -272,7 +292,6 @@
                         </td>
                         <td class="order-nr" data-number="1.161-083.0">1.161-083.0</td>
                         <td class="price">9.345,- €</td>
-                        <td class="savings">---</td>
                     </tr>
                     <tr>
                         <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
@@ -282,7 +301,6 @@
                         </td>
                         <td class="order-nr" data-number="1.517-100.0">1.517-100.0</td>
                         <td class="price">640,- €</td>
-                        <td class="savings">---</td>
                     </tr>
                     <tr>
                         <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
@@ -292,7 +310,6 @@
                         </td>
                         <td class="order-nr" data-number="1.517-200.0">1.517-200.0</td>
                         <td class="price">1.590,- €</td>
-                        <td class="savings">---</td>
                     </tr>
                     <tr>
                         <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
@@ -302,7 +319,6 @@
                         </td>
                         <td class="order-nr" data-number="1.049-220.0">1.049-220.0</td>
                         <td class="price">4.300,- €</td>
-                        <td class="savings">---</td>
                     </tr>
                      <tr>
                         <td><input type="number" min="0" class="quantity-input" placeholder="0"></td>
@@ -312,10 +328,12 @@
                         </td>
                         <td class="order-nr" data-number="1.049-221.0">1.049-221.0</td>
                         <td class="price">3.300,- €</td>
-                        <td class="savings">---</td>
                     </tr>
                 </tbody>
             </table>
+            </div>
+            <div class="footnote">
+                <p>*Aktions-UVP zzgl. MwSt./Stk. Aktionszeitraum 01.01. - 31.12.2025. Zugabe nur in Verbindung mit dem Kauf eines Aktionsgerätes. Angebot gültig solange der Vorrat reicht. Nicht kombinierbar mit anderen Aktionen. Bei Rückgabe des Aktionsgeräts ist die Zugabe zurückzugewähren. **Voraussetzung für den Erhalt der 24-monatigen Garantieverlängerung ist die Online-Registrierung Ihres gekauften Produktes unter karcher.de/90-years innerhalb von 6 Wochen nach Kauf („Ausschlussfrist"). Es gelten die Garantiebedingungen, die bei Verlängerung der Garantie zur Verfügung gestellt werden.</p>
             </div>
         </section>
 
@@ -327,7 +345,7 @@
                     <input type="text" id="name" required="">
                 </div>
                 <div class="form-group">
-                    <label for="verband">Bauern-/Winzerverband</label>
+                    <label for="verband">Bauern-/Winzerverband (optional)</label>
                     <input type="text" id="verband">
                 </div>
                 <div class="form-group">
@@ -335,7 +353,7 @@
                     <input type="text" id="strasse" required="">
                 </div>
                 <div class="form-group">
-                    <label for="mitgliedsnummer">BV-Mitglieds-Nummer</label>
+                    <label for="mitgliedsnummer">BV-Mitglieds-Nummer (optional)</label>
                     <input type="text" id="mitgliedsnummer">
                 </div>
                 <div class="form-group">
@@ -356,6 +374,7 @@
         <div class="actions">
             <button id="printButton" class="btn btn-secondary">Formular Drucken</button>
             <button id="emailButton" class="btn btn-primary">Bestellung per E-Mail senden</button>
+            <a href="https://www.jenpneumatik.de/produkte/kaercher/" target="_blank" class="btn btn-karcher">Unser Kärcher-Service</a>
             <a href="https://www.jenpneumatik.de/" target="_blank" class="btn btn-tertiary">Zur jenpneumatik Webseite</a>
         </div>
 
