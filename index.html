@@ -5,21 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jenpneumatik GmbH | Kärcher Jubiläumsaktion</title>
     <style>
+        /* === WICHTIGE ÄNDERUNGEN START === */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 20px;
             background-color: #f7f7f7;
             color: #333;
+            
+            /* Neues Hintergrundbild */
+            background-image: url('background.png');
+            background-size: cover; /* Füllt den gesamten Bildschirm */
+            background-position: center center; /* Zentriert das Bild */
+            background-attachment: fixed; /* Sorgt für den Parallax-Effekt beim Scrollen */
         }
         .container {
             max-width: 1100px;
             margin: 20px auto;
-            background-color: #fff;
+            /* Leicht transparenter Hintergrund für den "Milchglas"-Effekt */
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px); /* Weichzeichner für den Hintergrund dahinter */
+            -webkit-backdrop-filter: blur(8px); /* Für Safari-Browser */
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.15);
         }
+        /* === WICHTIGE ÄNDERUNGEN ENDE === */
+
         .header {
             text-align: center;
             padding-bottom: 20px;
@@ -32,26 +44,24 @@
             height: auto;
         }
         .intro {
-            background-color: #FFED00; /* Kärcher Gelb */
-            border-radius: 8px;
-            padding: 25px;
+            padding: 10px 0; /* Weniger Abstand, da keine Box mehr */
             text-align: center;
         }
         .intro h2 {
-            color: #333; /* Dunkler Text für Lesbarkeit */
+            color: #333;
             margin-top: 0;
             margin-bottom: 15px;
         }
         .intro img {
             width: 100%;
-            max-width: 500px; /* Maximale Breite für das Bild */
+            max-width: 500px;
             height: auto;
             border-radius: 8px;
             margin-bottom: 15px;
         }
         .intro p {
             font-size: 1.1em;
-            color: #333; /* Dunkler Text für Lesbarkeit */
+            color: #333;
             margin-bottom: 0;
         }
         .intro .subtext {
@@ -59,14 +69,14 @@
             margin-top: 15px;
         }
         .section {
-            background-color: #fff;
-            padding: 25px;
+            background-color: transparent; /* Muss durchsichtig sein */
+            padding: 25px 0; /* Angepasster Abstand */
             border-radius: 8px;
             margin-top: 25px;
-            border: 1px solid #e9e9e9;
+            border: none; /* Kein extra Rahmen mehr nötig */
         }
         .section h3 {
-            color: #70a0c9; /* jenpneumatik Blau */
+            color: #70a0c9;
             margin-top: 0;
             border-bottom: 2px solid #70a0c9;
             padding-bottom: 10px;
@@ -125,8 +135,8 @@
         .footnote {
             font-size: 0.8em;
             color: #666;
-            padding: 15px 25px 0 25px;
-            margin-top: -25px;
+            padding: 15px 0 0 0;
+            margin-top: -10px;
         }
         .footnote a {
             color: #70a0c9;
@@ -151,7 +161,7 @@
             <h2>Profitieren Sie von der Kärcher-Jubiläumsaktion</h2>
             <img src="promo.png" alt="Kärcher Reinigungsgerät in Anwendung">
             <p>Feiern Sie mit und bestellen Sie zu Aktionspreisen* und mit 24 Monate Garantie**</p>
-            <p class="subtext">Aktion gültig vom 01.01. - 31.12.2025, solange der Vorrat reicht.<br>Sollten Sie Fragen haben, kontaktieren Sie uns gerne unter <a href="mailto:mail@jenpneumatik.de" style="color:#333;">mail@jenpneumatik.de</a>.</p>
+            <p class="subtext">Aktion gültig vom 01.01. - 31.12.2025, solange der Vorrat reicht.<br>Sollten Sie Fragen haben, kontaktieren Sie uns gerne direkt unter <a href="mailto:mail@jenpneumatik.de" style="color:#333;">mail@jenpneumatik.de</a>.</p>
         </section>
 
         <section class="section">
@@ -456,8 +466,3 @@
 
 </body>
 </html>
-
-
-
-
-
