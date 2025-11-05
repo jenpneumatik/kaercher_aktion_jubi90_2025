@@ -47,13 +47,27 @@
             margin-top: 0;
             margin-bottom: 15px;
         }
-        .intro img {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 8px;
+        
+        /* === NEUES BILD-LAYOUT START === */
+        .image-container {
+            display: flex;
+            gap: 20px; /* Abstand zwischen den Bildern */
             margin-bottom: 15px;
+            align-items: stretch; /* Stellt sicher, dass die Wrapper die gleiche Höhe haben */
         }
+        .image-wrapper {
+            flex: 1; /* Beide Wrapper nehmen den gleichen Platz ein */
+            display: flex;
+        }
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Sorgt dafür, dass Bilder ohne Verzerrung füllen */
+            border-radius: 8px;
+            display: block;
+        }
+        /* === NEUES BILD-LAYOUT ENDE === */
+
         .intro p {
             font-size: 1.1em;
             color: #333;
@@ -147,6 +161,7 @@
             .form-grid { grid-template-columns: 1fr; }
             .container { padding: 20px; }
             .product-table th, .product-table td { padding: 10px 5px; }
+            .image-container { flex-direction: column; } /* Bilder untereinander auf Mobilgeräten */
         }
     </style>
 </head>
@@ -160,11 +175,20 @@
 
         <section class="intro">
             <h2>Profitieren Sie von der Kärcher-Jubiläumsaktion! 🥳</h2>
+
             <!-- === ANPASSUNG START === -->
-            <a href="https://drive.google.com/file/d/1fYbrqoAexKmUFdapisNd0AcfVr6veNCT/view" target="_blank" rel="noopener noreferrer">
-                <img src="promo.png" alt="Kärcher Reinigungsgerät in Anwendung">
-            </a>
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="promo.png" alt="Kärcher Reinigungsgerät in Anwendung">
+                </div>
+                <div class="image-wrapper">
+                    <a href="https://drive.google.com/file/d/1fYbrqoAexKmUFdapisNd0AcfVr6veNCT/view" target="_blank" rel="noopener noreferrer">
+                        <img src="promo-link.png" alt="Kärcher 90 Jahre Jubiläumsaktion Flyer">
+                    </a>
+                </div>
+            </div>
             <!-- === ANPASSUNG ENDE === -->
+
             <p><h3>Feiern Sie mit und bestellen Sie zu Aktionspreisen* und mit 24 Monate Garantie**.</h3></p>
             <p class="subtext">Aktion gültig vom 01.01. - 31.12.2025, solange der Vorrat reicht.<br>Sollten Sie Fragen haben, kontaktieren Sie uns gerne direkt unter <a href="mailto:mail@jenpneumatik.de" style="color:#333;">mail@jenpneumatik.de</a>.</p>
         </section>
