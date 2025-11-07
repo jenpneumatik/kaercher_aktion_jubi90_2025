@@ -361,16 +361,8 @@
                     <input type="text" id="name" required="">
                 </div>
                 <div class="form-group">
-                    <label for="verband">Bauern-/Winzerverband (optional)</label>
-                    <input type="text" id="verband">
-                </div>
-                <div class="form-group">
                     <label for="strasse">Straße und Hausnummer</label>
                     <input type="text" id="strasse" required="">
-                </div>
-                <div class="form-group">
-                    <label for="mitgliedsnummer">BV-Mitglieds-Nummer (optional)</label>
-                    <input type="text" id="mitgliedsnummer">
                 </div>
                 <div class="form-group">
                     <label for="ort">PLZ und Ort</label>
@@ -432,8 +424,6 @@
                 // 2. Kontaktdaten sammeln
                 const contactDetails = {
                     name: document.getElementById('name').value,
-                    verband: document.getElementById('verband').value,
-                    mitgliedsnummer: document.getElementById('mitgliedsnummer').value,
                     strasse: document.getElementById('strasse').value,
                     ort: document.getElementById('ort').value,
                     tel: document.getElementById('tel').value,
@@ -458,8 +448,6 @@
                 body += `${contactDetails.ort}\n\n`;
                 body += `E-Mail: ${contactDetails.email}\n`;
                 body += `Telefon: ${contactDetails.tel}\n\n`;
-                if (contactDetails.verband) body += `Bauern-/Winzerverband: ${contactDetails.verband}\n`;
-                if (contactDetails.mitgliedsnummer) body += `BV-Mitglieds-Nummer: ${contactDetails.mitgliedsnummer}\n`;
                 body += '\nMit freundlichen Grüßen\n';
                 body += contactDetails.name;
 
@@ -472,6 +460,7 @@
 
 </body>
 </html>
+
 
 
 
